@@ -1,0 +1,56 @@
+// =============================================================================
+// Social Proof
+// Latest news links. Clean list, no visual noise.
+// =============================================================================
+
+.social-proof {
+    background-color: var(--color-bg);
+    padding: var(--space-xl) 0;
+}
+
+.social-proof__title {
+    margin-bottom: var(--space-md);
+}
+
+.social-proof__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-md);
+}
+
+.social-proof__item {
+    border-top: 1px solid var(--color-border);
+}
+
+.social-proof__item:last-child {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.social-proof__link {
+    display: block;
+    padding: var(--space-sm) 0;
+    color: var(--color-text);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    transition: color var(--transition-base);
+}
+
+.social-proof__link:hover {
+    color: var(--color-primary);
+}
+
+.social-proof__more {
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: color var(--transition-base);
+}
+
+.social-proof__more:hover {
+    color: var(--color-primary-hover);
+}
+
+@media (max-width: 48em) {
+    .social-proof {
+        padding: var(--space-lg) 0;
+    }
+}
