@@ -1,0 +1,43 @@
+// =============================================================================
+// Donor CTA
+// The earned ask. High contrast, full-width, conversion-focused.
+// =============================================================================
+
+.donor-cta {
+    background-color: var(--color-primary);
+    padding: var(--space-xl) 0;
+    text-align: center;
+}
+
+.donor-cta__title {
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-sm);
+}
+
+.donor-cta__body {
+    color: var(--color-text-inverse);
+    opacity: 0.9;
+    margin-bottom: var(--space-md);
+    margin-inline: auto;
+}
+
+.donor-cta .btn--primary {
+    background-color: var(--color-text-inverse);
+    color: var(--color-primary);
+}
+
+.donor-cta .btn--primary:hover {
+    background-color: var(--color-bg-subtle);
+}
+
+@media (max-width: 48em) {
+    .donor-cta {
+        padding: var(--space-lg) 0;
+    }
+
+    .donor-cta .btn--primary {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
