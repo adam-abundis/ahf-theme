@@ -1,0 +1,75 @@
+// ==========================================================================
+// Design Tokens
+// All values live here. Nothins is hardcoded anywhere else.
+// Change a value here, and it's updated everywhere.
+// ==========================================================================
+
+:root {
+  // --------------------------------------------------------
+  // Colors
+  // Names describes the role, not the value.
+  // --------------------------------------------------------
+
+  --color-primary:       #cc4900;  // brand organge -- passes WCAG AA on white
+  --color-primary-light: #ff5b00;  // original AHF orange — large text only
+  --color-primary-hover: #b34000;  // button hover state
+
+  --color-text:          #2d2a27;  // body copy - 8:1 on white
+  --color-text-muted:    #5a5750;  // captions, secondary text — 5.1:1 on white
+  --color-text-inverse:  #ffffff;  // text on dark/colored backgrounds
+
+  --color-bg:            #ffffff;  // page background
+  --color-bg-subtle:     #fff7f2;  // warm tint for alternating sections
+  --color-border:        #e8e6e3;  // dividers, card borders
+
+  // --------------------------------------------------------
+  // Typography
+  // --------------------------------------------------------
+
+  --font-body:           "PT Sans", sans-serif;
+  --font-heading:        "PT Serif", serif;
+
+  --text-base:           1rem;     // 16px
+  --text-lg:             1.25rem;  // 20px
+  --text-xl:             1.5rem;   // 24px
+  --text-2xl:            2rem;     // 32px
+  --text-3xl:            2.5rem;   // 40px
+  --text-4xl:            3rem;     // 48px
+  --text-5xl:            3.5rem;   // 56px
+  --text-6xl:            4rem;     // 64px
+
+  --leading-tight:       1.2;
+  --leading-normal:      1.6;
+
+  // -------------------------------------------------------------------------
+  // Spacing
+  // Consistent rhythm across every section.
+  // -------------------------------------------------------------------------
+
+  --space-xs:             0.5rem;     // 8px
+  --space-sm:             1rem;       // 16px
+  --space-md:             2rem;       // 32px
+  --space-lg:             4rem;       // 64px
+  --space-xl:             6rem;       // 96px
+
+  // -------------------------------------------------------------------------
+  // Layout
+  // -------------------------------------------------------------------------
+
+  --container-width:      1200px;
+  --container-padding:    var(--space-md);
+ 
+  // -------------------------------------------------------------------------
+  // Borders
+  // -------------------------------------------------------------------------
+
+  --radius-sm:            4px;
+  --radius-md:            8px;
+  --radius-pill:          999px;
+
+  // -------------------------------------------------------------------------
+  // Transitions
+  // -------------------------------------------------------------------------
+
+  --transition-base:      0.2s ease;
+}
