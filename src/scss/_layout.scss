@@ -1,0 +1,58 @@
+// =============================================================================
+// Layout
+// Container, Google Fonts import, and shared structural patterns.
+// =============================================================================
+
+// Google Fonts — PT Sans and PT Serif
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap');
+
+// -----------------------------------------------------------------------------
+// Container
+// Centers content and caps max-width on large screens.
+// Every section wraps its content in .container.
+// ----------------------------------------------------------------------------
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+// -----------------------------------------------------------------------------
+// Buttons
+// Shared button styles used across multiple sections.
+// -----------------------------------------------------------------------------
+
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color var(--transition-base),
+                color var(--transition-base);
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
