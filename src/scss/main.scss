@@ -1,3 +1,20 @@
- // AHF Theme styles.
- // Partials are imported here in order.
- // Variables and reset load first, components load last.
+// =============================================================================
+//  Main
+// Imports all partials in dependency order.
+// Globals first, components second.
+// Never write styles directly in this file.
+// =============================================================================
+
+// Globals — no dependencies, load first
+@use 'variables';
+@use 'reset';
+@use 'typography';
+@use 'layout';
+
+// Components — depend on variables
+@use 'navigation';
+@use 'hero';
+@use 'empathy';
+@use 'how-we-help';
+@use 'social-proof';
+@use 'donor-cta';
