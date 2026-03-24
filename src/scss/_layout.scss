@@ -1,10 +1,7 @@
 // =============================================================================
 // Layout
-// Container, Google Fonts import, and shared structural patterns.
+// Container and shared structural patterns.
 // =============================================================================
-
-// Google Fonts — PT Sans and PT Serif
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:wght@400;700&display=swap');
 
 // -----------------------------------------------------------------------------
 // Container
@@ -55,4 +52,30 @@
 .btn--secondary:hover {
     background-color: var(--color-primary);
     color: var(--color-text-inverse);
+}
+
+// ----------------------------------------------------------------------------
+// Focus visible
+// Keyboard focus ring for all interactive elements.
+// Uses :focus-visible so mouse users never see the ring.
+// ----------------------------------------------------------------------------
+
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+// -----------------------------------------------------------------------------
+// Reduced motion
+// Respects user's OS-level motion preference.
+// Required for WCAG AA compliance.
+// -----------------------------------------------------------------------------
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
