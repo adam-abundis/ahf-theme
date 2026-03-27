@@ -2,25 +2,31 @@
 declare(strict_types=1);
 
 defined('ABSPATH') || exit;
+
+$title      = carbon_get_post_meta( get_the_ID(), 'crb_sp_title' );
+$links      = carbon_get_post_meta( get_the_ID(), 'crb_sp_links' );
+$more_label = carbon_get_post_meta( get_the_ID(), 'crb_sp_more_label' );
+$more_url   = carbon_get_post_meta( get_the_ID(), 'crb_sp_more_url' );
 ?>
 
 <section class="social-proof" aria-labelledby="social-proof-heading">
     <div class="container">
-        <h2 id="social-proof-heading" class="social-proof__title">Latest News</h2>
+        <h2 id="social-proof-heading" class="social-proof__title">
+            <?php echo esc_html( $title ); ?>
+        </h2>
+        <?php if ( ! empty( $links ) ) : ?>
         <ul class="social-proof__list">
-            <li class="social-proof__item">
-                <a href="/news/item.html/n/20642" class="social-proof__link">Give Them Time</a>
-            </li>
-            <li class="social-proof__item">
-                <a href="/news/item.html/n/20641" class="social-proof__link">How to Do CPR On a Dog</a>
-            </li>
-            <li class="social-proof__item">
-                <a href="/news/item.html/n/20639" class="social-proof__link">Angel Fund Helps Puppy Stricken by Parvovirus</a>
-            </li>
-            <li class="social-proof__item">
-                <a href="/news/item.html/n/20633" class="social-proof__link">UF Small Animal Hospital makes history with first open-heart surgery procedure</a>
-            </li>
+            <?php foreach ( $links as $link ) : ?>
+                <li class="social-proof__item">
+                    <a href="<?php echo esc_url( $link['url'] ); ?>" class="social-proof__link">
+                        <?php echo esc_html( $link['label'] ); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
-        <a href="/news/" class="social-proof__more">See All News</a>
+        <?php endif; ?>
+        <a href="<?php echo esc_url( $more_url ); ?>" class="social-proof__more">
+            <?php echo esc_html( $more_label ); ?>
+        </a>
     </div>
 </section>

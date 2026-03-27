@@ -4,11 +4,62 @@
 // =============================================================================
 
 .hero {
+    position: relative;
     background-color: var(--color-bg-subtle);
     padding: var(--space-xl) 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.75) 0%,
+        rgba(0, 0, 0, 0.55) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+    z-index: 1;
+    display: none;
+}
+
+.hero--has-image::after {
+    display: block;
+}
+
+.hero:not(.hero--has-image) .hero__eyebrow {
+    color: var(--color-primary);
+}
+
+.hero:not(.hero--has-image) .hero__title {
+    color: var(--color-text);
+}
+
+.hero:not(.hero--has-image) .hero__body {
+    color: var(--color-text-muted);
+    opacity: 1;
+}
+
+.hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .hero__content {
+    position: relative;
+    z-index: 2;
     max-width: 720px;
 }
 
@@ -16,7 +67,7 @@
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: var(--space-sm);
@@ -25,13 +76,14 @@
 
 .hero__title {
     font-size: var(--text-4xl);
-    color: var(--color-text);
+    color: var(--color-text-inverse);
     margin-bottom: var(--space-sm);
 }
 
 .hero__body {
     font-size: var(--text-lg);
-    color: var(--color-text-muted);
+    color: var(--color-text-inverse);
+    opacity: 0.9;
     margin-bottom: var(--space-md);
 }
 
@@ -39,6 +91,28 @@
     display: flex;
     gap: var(--space-sm);
     flex-wrap: wrap;
+}
+
+// Button overrides for hero context: dark overlay requires inverted contrast.
+// Global .btn styles are correct for light-background sections (donor-cta, etc).
+.hero--has-image .hero__actions .btn--primary {
+    background-color: var(--color-text-inverse);
+    color: var(--color-primary);
+}
+
+.hero--has-image .hero__actions .btn--primary:hover {
+    background-color: var(--color-bg-subtle);
+}
+
+.hero--has-image .hero__actions .btn--secondary {
+    background-color: transparent;
+    color: var(--color-text-inverse);
+    border-color: var(--color-text-inverse);
+}
+
+.hero--has-image .hero__actions .btn--secondary:hover {
+    background-color: var(--color-text-inverse);
+    color: var(--color-primary);
 }
 
 @media (max-width: 48em) {

@@ -24,6 +24,7 @@
 }
 
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
@@ -31,6 +32,26 @@
     background-color: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
+    transition: box-shadow var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card__media {
+    margin: calc(var(--space-md) * -1) calc(var(--space-md) * -1) 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .card__title {
@@ -45,14 +66,37 @@
 }
 
 .card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
     font-weight: 700;
     color: var(--color-primary);
     font-size: var(--text-base);
     transition: color var(--transition-base);
 }
 
-.card__link:hover {
+// Stretched link: invisible overlay covers the full card surface.
+// ::before used here because ::after is reserved for the arrow.
+.card__link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: var(--radius-md);
+}
+
+.card__link::after {
+    content: '→';
+    transition: transform var(--transition-base);
+}
+
+// Arrow and color trigger on card hover, not just link hover.
+.card:hover .card__link {
     color: var(--color-primary-hover);
+}
+
+.card:hover .card__link::after {
+    transform: translateX(4px);
 }
 
 @media (max-width: 64em) {
